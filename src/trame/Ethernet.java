@@ -1,5 +1,6 @@
 package trame;
 
+import analyser.*;
 public class Ethernet {
 	private static int cpt = 0;
 	private final int id;

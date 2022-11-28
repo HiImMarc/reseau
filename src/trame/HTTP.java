@@ -1,7 +1,6 @@
 package trame;
 
-import analyser.Tools;
-
+import analyser.*;
 public class HTTP {
 	private String data ="";
 	
@@ -12,7 +11,7 @@ public class HTTP {
 	public String toString() {
 		String res ="";
 		res += ""+ Tools.hexToAscii(data);
-		res += ""+"---------------------------------\n";
+		res += ""+"----------------------------------------------------\n";
 		return res;
 	}
 	

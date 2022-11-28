@@ -1,4 +1,5 @@
 package analyser;
+import trame.*;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -6,9 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import trame.*;
-
 public class Analyser {
 	
 	public static Boolean isAlphaNumeric(String s) {
@@ -89,18 +87,30 @@ public class Analyser {
 				}
 				//conversion StringBuilder to String
 				String tmp2bis = ""+tmp2.toString();
-				//On ajoute la trame propre finale à notre liste de trames à traiter
+				//On ajoute la trame épurée finale à notre liste de trames à traiter
 				trameFinale.add(tmp2bis);
 			}
 
 			for (String trame : trameFinale) {
 				Ethernet e = new Ethernet(trame);
-				IPv4 ip = e.getIpv4();
-				TCP tcp = ip.getTCP();
-				HTTP http = tcp.getHTTP();
 				System.out.print(e);
+				IPv4 ip = e.getIpv4();
+				if (ip == null) {
+					System.out.println("Pas de IPv4");
+					continue;
+				}
 				System.out.print(ip);
+				TCP tcp = ip.getTCP();
+				if (tcp == null) {
+					System.out.println("Pas de TCP");
+					continue;
+				}
 				System.out.println(tcp);
+				HTTP http = tcp.getHTTP();
+				if (http == null) {
+					System.out.println("Pas de HTTP");
+					continue;
+				}
 				System.out.println(http);
 			}
 		} catch (FileNotFoundException e) {

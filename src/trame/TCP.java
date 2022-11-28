@@ -1,6 +1,6 @@
 package trame;
 
-import analyser.Tools;
+import analyser.*;
 
 public class TCP {
 	private String sourcePort="";
@@ -70,10 +70,9 @@ public class TCP {
 		urgentPointer+=""+trame.charAt(36)+trame.charAt(37);
 		urgentPointer+=""+trame.charAt(38)+trame.charAt(39);
 		
-		int dataLength = getDataLength();
-		int debutData = 40 + optionLength()*8;
-		System.out.print("PAAAA"+dataLength);
-		for (int i = debutData; i < dataLength - 1; i+=1){
+		int debutData = Integer.parseInt(thl, 16);
+		debutData = debutData*8;
+		for (int i = debutData; i < trame.length(); i++){
 			data +="" + trame.charAt(i);
 		}
 		doHTTP();
@@ -83,8 +82,8 @@ public class TCP {
 		String res ="";
 		res +="TCP\n";
 		res += "	   Source Port : "+sourcePort+"\n";
-		res += "	   Destination Port : "+destinationPort+"\n";
-		res += "	   Sequence Number : "+"0x"+sequenceNumber+"\n";
+		res += "	   Destination Port : "+Integer.parseInt(destinationPort,16)+"\n";
+		res += "	   Sequence Number : "+"0x"+Integer.parseInt(sequenceNumber,16)+"\n";
 		res += "	   Acknowledgment Number : "+acknowNumber+"\n";
 		res += "	   Transport Header Length : "+"0x"+thl+"\n";
 		res += "	   Reserved : "+"0x"+reserved+"\n";
@@ -102,11 +101,15 @@ public class TCP {
 	}
 	
 	public void doHTTP() {
-		http = new HTTP(data);
+		if (hasHTTP()) http = new HTTP(data);
 	}
 	
 	public HTTP getHTTP() {
 		return http;
+	}
+	
+	public boolean hasHTTP() {
+		return Integer.parseInt(destinationPort,16) == 80 || Integer.parseInt(sourcePort,16) == 80;
 	}
 	
 	public int optionLength() {
@@ -114,16 +117,7 @@ public class TCP {
 	}
 	
 	public int getDataLength() {
-		int nbthl = Integer.parseInt(thl, 16);
-		return tailleTotale - nbthl;
+		int tailleEntete = Integer.parseInt(thl, 16);
+		return tailleTotale - tailleEntete;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
