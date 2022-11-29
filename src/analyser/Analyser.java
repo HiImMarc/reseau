@@ -57,32 +57,42 @@ public class Analyser {
 
 			
 			//On traite toutes les trames valides
+			StringBuilder textBuilder = new StringBuilder();
 			for (String trame : trameFinale) {
+				
 				Ethernet e = new Ethernet(trame);
 				System.out.print(e);
+				textBuilder.append(e.toString());
 				IPv4 ip = e.getIpv4();
 				if (ip == null) {
 					System.out.println("Pas de IPv4");
+					textBuilder.append("Pas de IPv4");
 					continue;
 				}
 				System.out.print(ip);
+				textBuilder.append(ip.toString());
 				TCP tcp = ip.getTCP();
 				if (tcp == null) {
 					System.out.println("Pas de TCP");
+					textBuilder.append("Pas de TCP");
 					continue;
 				}
 				System.out.println(tcp);
+				textBuilder.append(tcp.toString());
 				HTTP http = tcp.getHTTP();
 				if (http == null) {
 					System.out.println("Pas de HTTP");
+					textBuilder.append("Pas de HTTP");
 					continue;
 				}
 				System.out.println(http);
+				textBuilder.append(http.toString());
 			}
+			String text = textBuilder.toString();
+			Tools.ecrire(text);
 		} catch (FileNotFoundException e) {
 			System.out.println("Erreur lors de l'ouverture du fichier");
 			e.getMessage();
-			
 		}		
 	}
 }

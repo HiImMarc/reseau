@@ -10,7 +10,7 @@ public class HTTP {
 	}
 	
 	public String toString() {
-		String res ="";
+		String res ="HTTP :\n";
 		res += ""+ Tools.hexToAscii(data);
 		res += ""+"----------------------------------------------------\n";
 		return res;

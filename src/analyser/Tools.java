@@ -1,5 +1,9 @@
 package analyser;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 public abstract class Tools {
 	
 	//Convertie un nombre hexa en binaire et renvoie le binaire en string
@@ -90,4 +94,12 @@ public abstract class Tools {
 		}
 		return bool;
 	}
+	
+	public static void ecrire(String trame) throws FileNotFoundException, UnsupportedEncodingException {
+		PrintWriter writer = new PrintWriter("data/Resultat.txt", "UTF-8");
+		writer.println(trame);
+		writer.close();
+	}
+
+	
 }
