@@ -121,7 +121,6 @@ public class IPv4 {
 		res += "	   Time To Live : "+Integer.parseInt(ttl, 16)+"\n";
 		res += "	   Protocol : "+IPv4.whatProtocol(protocol)+"\n";
 		res += "	   Header Checksum unverified : "+headerChecksum+"\n";
-		res += "	   Protocol : "+IPv4.whatProtocol(protocol)+"\n";
 		res += "	   Source Adress : "+Tools.hexToAddressIP(sourceAdress)+"\n";
 		res += "	   Destination Adress : "+Tools.hexToAddressIP(destinationAdress)+"\n";
 		if (hasOptions()) {

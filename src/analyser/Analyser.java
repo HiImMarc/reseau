@@ -8,43 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 public class Analyser {
-	
-	public static Boolean isAlphaNumeric(String s) {
-        for (int i = 0; i < s.length(); i++)
-        {
-            char c = s.charAt(i);
-            if (!(c >= 'A' && c <= 'Z') &&
-                    !(c >= 'a' && c <= 'z') &&
-                    !(c >= '0' && c <= '9')) {
-            	return false;
-            }
-        }
-        return true;
-    }
-	public static Boolean isAlpha(char c) {
-	   return (!(c >= 'A' && c <= 'Z') &&
-	            !(c >= 'a' && c <= 'z'));
-    }
- 
-
-	public boolean DecodableOffset(String offset) {
-		if (offset.length() < 2 || ! Analyser.isAlphaNumeric(offset)) {
-			return false;
-		}
-		boolean bool = false;
-
-		for (int i = 0; i < offset.length(); i++) {
-			if (Analyser.isAlpha(offset.charAt(i))) {
-				char[] tab = {'a','b','c','d','e','f'};
-				for (int j = 0; j < 6; j++) {
-					if (Character.toLowerCase(offset.charAt(i)) == tab[j] ) {
-						bool = true;
-					}
-				}
-			}
-		}
-		return bool;
-	}
 
 	public static void main(String args[]) throws IOException {
 		String file = "data/test5.txt";
@@ -74,6 +37,7 @@ public class Analyser {
 			
 			//On crée une liste de trames que l'on va traiter
 			List<String> trameFinale = new ArrayList<>();
+			
 			//Pour chaque dirty trame (càd avec offset), on va la clean
 			for (int i = 1; i < splitedTrames.length ;i++) {
 				// tableau contenant tout les éléments d'une trame (càd offset et donnée)
@@ -91,6 +55,8 @@ public class Analyser {
 				trameFinale.add(tmp2bis);
 			}
 
+			
+			//On traite toutes les trames valides
 			for (String trame : trameFinale) {
 				Ethernet e = new Ethernet(trame);
 				System.out.print(e);
@@ -114,8 +80,8 @@ public class Analyser {
 				System.out.println(http);
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("ERROR");
-			e.getCause();
+			System.out.println("Erreur lors de l'ouverture du fichier");
+			e.getMessage();
 			
 		}		
 	}

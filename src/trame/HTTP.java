@@ -3,7 +3,8 @@ package trame;
 import analyser.*;
 public class HTTP {
 	private String data ="";
-	
+
+
 	public HTTP(String trame) {
 		data = trame;
 	}
@@ -18,5 +19,4 @@ public class HTTP {
 	public String getHTTP() {
 		return data;
 	}
-	
 }

@@ -54,4 +54,40 @@ public abstract class Tools {
 	    
 	    return output.toString();
 	}
+	
+	public static Boolean isAlphaNumeric(String s) {
+        for (int i = 0; i < s.length(); i++)
+        {
+            char c = s.charAt(i);
+            if (!(c >= 'A' && c <= 'Z') &&
+                    !(c >= 'a' && c <= 'z') &&
+                    !(c >= '0' && c <= '9')) {
+            	return false;
+            }
+        }
+        return true;
+    }
+	public static Boolean isAlpha(char c) {
+	   return (!(c >= 'A' && c <= 'Z') &&
+	            !(c >= 'a' && c <= 'z'));
+    }
+	
+	public static boolean DecodableOffset(String offset) {
+		if (offset.length() < 2 || ! isAlphaNumeric(offset)) {
+			return false;
+		}
+		boolean bool = false;
+
+		for (int i = 0; i < offset.length(); i++) {
+			if (isAlpha(offset.charAt(i))) {
+				char[] tab = {'a','b','c','d','e','f'};
+				for (int j = 0; j < 6; j++) {
+					if (Character.toLowerCase(offset.charAt(i)) == tab[j] ) {
+						bool = true;
+					}
+				}
+			}
+		}
+		return bool;
+	}
 }
