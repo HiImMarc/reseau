@@ -21,7 +21,7 @@ public class HTTP {
 	
 	public String toString() {
 		String[] res =Tools.hexToAscii(data).split("\n");
-		if (res[0].length() > 30) return res[0].substring(0, 30)+".....";
+		if (res[0].length() > 30) return res[0].substring(0, 30)+".....\n";
 		return res[0];
 	}
 	

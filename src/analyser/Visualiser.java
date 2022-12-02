@@ -13,7 +13,7 @@ import trame.*;
 
 public class Visualiser {
 
-	public static void execute() throws IOException {
+	public static List<String> execute() throws IOException {
 		String file = "data/test6.txt";
 		try {
 			int cpt = -1;
@@ -100,17 +100,22 @@ public class Visualiser {
 			//Le port qu'on va afficher à gauche
 			String leftPort = "";
 			
+			List<String> list = new ArrayList<>();
+			
+			
 			//TANT QU'ON A DES PAIRES A TRAITER
-			System.out.println("PAIRS ARE : "+pairs+"\n\n\n");
+//			System.out.println("PAIRS ARE : "+pairs+"\n\n\n");
 			int i = 1;
 			while (!pairs.isEmpty()) {
 				boolean traffic = false;
+				res ="";
 				leftPort = "";
 				curSourceIP = pairs.get(0).getKey();
 				curDestinationIP = pairs.get(0).getValue();
 				res = ""+curSourceIP+"							"+curDestinationIP+"\n";
 				for (String trame : tramesTotale) {
 					//On crée l'ethernet et l'ip pour avoir les adresses IP qui communiquent
+					res = "";
 					e = new Ethernet(trame);
 					ip = e.getIpv4();
 					if (ip == null) continue;
@@ -152,12 +157,15 @@ public class Visualiser {
 //						System.out.print(res);
 						}
 					}
+					list.add(res);
+					res="";
 				}
 				if (!traffic) res+=""+"			Pas de traffic reconnaissable";
 				System.out.print(res);
-
 				pairs.remove(0);
 			}
+			return list;
+
 //			String firstPort = "";
 //			e = new Ethernet(tramesTotale.get(0));
 //			ip = e.getIpv4();
@@ -205,5 +213,6 @@ public class Visualiser {
 			System.out.println("Erreur lors de l'ouverture du fichier");
 			e.getMessage();
 		}
+		return null;
 	}
 }

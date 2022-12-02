@@ -1,31 +1,31 @@
 Trame numéro : 1
 Ethernet 
-	 Adresse de destination : fe:ff:20:00:01:00
-	 Adresse de source : 00:00:01:00:00:00
+	 Adresse de destination : f0:9f:c2:18:be:de
+	 Adresse de source : f0:9e:4a:5a:ce:22
 	 Type : IP Datagram(0800)
 IPv4
 	   Version : 4
 	   IP Header Length : 5 bytes 0x5
-	   Type of Service : 0x00
-	   Total Length : 519 bytes
-	   Identification : 0x0f45
+	   Type of Service : 0x10
+	   Total Length : 57 bytes
+	   Identification : 0x0fbc
 	   Flags :
 	     Reserved bit : 0
 	     DF : 1
 	     MF : 0
 	   Fragment Offset : 0b0000000000000
-	   Time To Live : 128
+	   Time To Live : 63
 	   Protocol : TCP(6)
-	   Header Checksum unverified : 9010
-	   Source Adress : 145.254.160.237
-	   Destination Adress : 65.208.228.223
+	   Header Checksum unverified : f451
+	   Source Adress : 192.168.21.171
+	   Destination Adress : 34.218.62.116
 	   No Option
 TCP
-	   Source Port : 3372
+	   Source Port : 65222
 	   Destination Port : 80
-	   Sequence Number : 0x951057940
-	   Acknowledgment Number : 290218380
-	   Transport Header Length : 0x5
+	   Sequence Number : 0x1004650068
+	   Acknowledgment Number : 2686070173
+	   Transport Header Length : 0x8
 	   Reserved : 0x000000
 	   Flags TCP :
 	     Urgent Data : 0
@@ -34,37 +34,38 @@ TCP
 	     Reset : 0
 	     Synchronisation : 0
 	     Fin : 0
-	   Window : 0x25bc
-	   Checksum : a958
+	   Window : 0x01f6
+	   Checksum : 2a9a
 	   Urgent Pointer : 0000
-GET /download.html HTTP/1.1Trame numéro : 2
+Pas de HTTP
+Trame numéro : 2
 Ethernet 
-	 Adresse de destination : 00:00:01:00:00:00
-	 Adresse de source : fe:ff:20:00:01:00
+	 Adresse de destination : f0:9e:4a:5a:ce:22
+	 Adresse de source : f0:9f:c2:18:be:de
 	 Type : IP Datagram(0800)
 IPv4
 	   Version : 4
 	   IP Header Length : 5 bytes 0x5
 	   Type of Service : 0x00
-	   Total Length : 1420 bytes
-	   Identification : 0xc0a0
+	   Total Length : 52 bytes
+	   Identification : 0x3074
 	   Flags :
 	     Reserved bit : 0
 	     DF : 1
 	     MF : 0
 	   Fragment Offset : 0b0000000000000
-	   Time To Live : 47
+	   Time To Live : 37
 	   Protocol : TCP(6)
-	   Header Checksum unverified : 2c30
-	   Source Adress : 65.208.228.223
-	   Destination Adress : 145.254.160.237
+	   Header Checksum unverified : edae
+	   Source Adress : 34.218.62.116
+	   Destination Adress : 192.168.21.171
 	   No Option
 TCP
 	   Source Port : 80
-	   Destination Port : 3372
-	   Sequence Number : 0x290219760
-	   Acknowledgment Number : 951058419
-	   Transport Header Length : 0x5
+	   Destination Port : 65222
+	   Sequence Number : 0x2686070173
+	   Acknowledgment Number : 1004650073
+	   Transport Header Length : 0x8
 	   Reserved : 0x000000
 	   Flags TCP :
 	     Urgent Data : 0
@@ -73,37 +74,38 @@ TCP
 	     Reset : 0
 	     Synchronisation : 0
 	     Fin : 0
-	   Window : 0x1920
-	   Checksum : c351
+	   Window : 0x00d2
+	   Checksum : 0dee
 	   Urgent Pointer : 0000
-          <a href="search.html.....Trame numéro : 3
+Pas de HTTP
+Trame numéro : 3
 Ethernet 
-	 Adresse de destination : fe:ff:20:00:01:00
-	 Adresse de source : 00:00:01:00:00:00
+	 Adresse de destination : f0:9f:c2:18:be:de
+	 Adresse de source : f0:9e:4a:5a:ce:22
 	 Type : IP Datagram(0800)
 IPv4
 	   Version : 4
 	   IP Header Length : 5 bytes 0x5
-	   Type of Service : 0x00
-	   Total Length : 519 bytes
-	   Identification : 0x0f45
+	   Type of Service : 0x10
+	   Total Length : 54 bytes
+	   Identification : 0x0fbd
 	   Flags :
 	     Reserved bit : 0
 	     DF : 1
 	     MF : 0
 	   Fragment Offset : 0b0000000000000
-	   Time To Live : 128
+	   Time To Live : 63
 	   Protocol : TCP(6)
-	   Header Checksum unverified : 9010
-	   Source Adress : 145.254.160.237
-	   Destination Adress : 65.208.228.223
+	   Header Checksum unverified : f453
+	   Source Adress : 192.168.21.171
+	   Destination Adress : 34.218.62.116
 	   No Option
 TCP
-	   Source Port : 3372
+	   Source Port : 65222
 	   Destination Port : 80
-	   Sequence Number : 0x951057940
-	   Acknowledgment Number : 290218380
-	   Transport Header Length : 0x5
+	   Sequence Number : 0x1004650073
+	   Acknowledgment Number : 2686070173
+	   Transport Header Length : 0x8
 	   Reserved : 0x000000
 	   Flags TCP :
 	     Urgent Data : 0
@@ -112,37 +114,78 @@ TCP
 	     Reset : 0
 	     Synchronisation : 0
 	     Fin : 0
-	   Window : 0x25bc
-	   Checksum : a958
+	   Window : 0x01f6
+	   Checksum : feb3
 	   Urgent Pointer : 0000
-GET /download.html HTTP/1.1Trame numéro : 4
+Pas de HTTP
+Trame numéro : 4
 Ethernet 
-	 Adresse de destination : fe:ff:20:00:01:00
-	 Adresse de source : 00:00:01:00:00:00
+	 Adresse de destination : f0:9e:4a:5a:ce:22
+	 Adresse de source : f0:9f:c2:18:be:de
 	 Type : IP Datagram(0800)
 IPv4
 	   Version : 4
 	   IP Header Length : 5 bytes 0x5
 	   Type of Service : 0x00
-	   Total Length : 761 bytes
-	   Identification : 0x0f4d
+	   Total Length : 52 bytes
+	   Identification : 0x3075
 	   Flags :
 	     Reserved bit : 0
 	     DF : 1
 	     MF : 0
 	   Fragment Offset : 0b0000000000000
-	   Time To Live : 128
+	   Time To Live : 37
 	   Protocol : TCP(6)
-	   Header Checksum unverified : a173
-	   Source Adress : 145.254.160.237
-	   Destination Adress : 216.239.59.99
+	   Header Checksum unverified : edad
+	   Source Adress : 34.218.62.116
+	   Destination Adress : 192.168.21.171
 	   No Option
 TCP
-	   Source Port : 3371
-	   Destination Port : 80
-	   Sequence Number : 0x918691368
-	   Acknowledgment Number : 778785668
-	   Transport Header Length : 0x5
+	   Source Port : 80
+	   Destination Port : 65222
+	   Sequence Number : 0x2686070173
+	   Acknowledgment Number : 1004650075
+	   Transport Header Length : 0x8
+	   Reserved : 0x000000
+	   Flags TCP :
+	     Urgent Data : 0
+	     Acknowledgment : 1
+	     Push : 0
+	     Reset : 0
+	     Synchronisation : 0
+	     Fin : 0
+	   Window : 0x00d2
+	   Checksum : 0caa
+	   Urgent Pointer : 0000
+Pas de HTTP
+Trame numéro : 5
+Ethernet 
+	 Adresse de destination : f0:9e:4a:5a:ce:22
+	 Adresse de source : f0:9f:c2:18:be:de
+	 Type : IP Datagram(0800)
+IPv4
+	   Version : 4
+	   IP Header Length : 5 bytes 0x5
+	   Type of Service : 0x00
+	   Total Length : 444 bytes
+	   Identification : 0x3076
+	   Flags :
+	     Reserved bit : 0
+	     DF : 1
+	     MF : 0
+	   Fragment Offset : 0b0000000000000
+	   Time To Live : 37
+	   Protocol : TCP(6)
+	   Header Checksum unverified : ec24
+	   Source Adress : 34.218.62.116
+	   Destination Adress : 192.168.21.171
+	   No Option
+TCP
+	   Source Port : 80
+	   Destination Port : 65222
+	   Sequence Number : 0x2686070173
+	   Acknowledgment Number : 1004650075
+	   Transport Header Length : 0x8
 	   Reserved : 0x000000
 	   Flags TCP :
 	     Urgent Data : 0
@@ -151,31 +194,207 @@ TCP
 	     Reset : 0
 	     Synchronisation : 0
 	     Fin : 0
-	   Window : 0x2238
-	   Checksum : 0b64
+	   Window : 0x00d2
+	   Checksum : 1e86
 	   Urgent Pointer : 0000
-GET /pagead/ads?client=ca-pub-.....Trame numéro : 5
+HTTP/1.1 400 Bad RequestTrame numéro : 6
 Ethernet 
-	 Adresse de destination : 08:00:20:0a:ac:96
-	 Adresse de source : 08:00:20:0a:70:66
+	 Adresse de destination : f0:9e:4a:5a:ce:22
+	 Adresse de source : f0:9f:c2:18:be:de
 	 Type : IP Datagram(0800)
 IPv4
 	   Version : 4
-	   IP Header Length : 15 bytes 0xf
+	   IP Header Length : 5 bytes 0x5
 	   Type of Service : 0x00
-	   Total Length : 124 bytes
-	   Identification : 0xcbc9
+	   Total Length : 52 bytes
+	   Identification : 0x3077
 	   Flags :
 	     Reserved bit : 0
-	     DF : 0
+	     DF : 1
 	     MF : 0
 	   Fragment Offset : 0b0000000000000
-	   Time To Live : 255
-	   Protocol : ICMP(1)
-	   Header Checksum unverified : b97f
-	   Source Adress : 132.227.61.5
-	   Destination Adress : 192.33.159.6
-	   Option List :  (7) Record Route
-	   
-Pas de TCP
+	   Time To Live : 37
+	   Protocol : TCP(6)
+	   Header Checksum unverified : edab
+	   Source Adress : 34.218.62.116
+	   Destination Adress : 192.168.21.171
+	   No Option
+TCP
+	   Source Port : 80
+	   Destination Port : 65222
+	   Sequence Number : 0x2686070565
+	   Acknowledgment Number : 1004650075
+	   Transport Header Length : 0x8
+	   Reserved : 0x000000
+	   Flags TCP :
+	     Urgent Data : 0
+	     Acknowledgment : 1
+	     Push : 0
+	     Reset : 0
+	     Synchronisation : 0
+	     Fin : 1
+	   Window : 0x00d2
+	   Checksum : 0b21
+	   Urgent Pointer : 0000
+Pas de HTTP
+Trame numéro : 7
+Ethernet 
+	 Adresse de destination : f0:9f:c2:18:be:de
+	 Adresse de source : f0:9e:4a:5a:ce:22
+	 Type : IP Datagram(0800)
+IPv4
+	   Version : 4
+	   IP Header Length : 5 bytes 0x5
+	   Type of Service : 0x10
+	   Total Length : 54 bytes
+	   Identification : 0x0fbe
+	   Flags :
+	     Reserved bit : 0
+	     DF : 1
+	     MF : 0
+	   Fragment Offset : 0b0000000000000
+	   Time To Live : 63
+	   Protocol : TCP(6)
+	   Header Checksum unverified : f452
+	   Source Adress : 192.168.21.171
+	   Destination Adress : 34.218.62.116
+	   No Option
+TCP
+	   Source Port : 65222
+	   Destination Port : 80
+	   Sequence Number : 0x1004650075
+	   Acknowledgment Number : 2686070173
+	   Transport Header Length : 0x8
+	   Reserved : 0x000000
+	   Flags TCP :
+	     Urgent Data : 0
+	     Acknowledgment : 1
+	     Push : 1
+	     Reset : 0
+	     Synchronisation : 0
+	     Fin : 0
+	   Window : 0x01f6
+	   Checksum : fda5
+	   Urgent Pointer : 0000
+Pas de HTTP
+Trame numéro : 8
+Ethernet 
+	 Adresse de destination : f0:9f:c2:18:be:de
+	 Adresse de source : f0:9e:4a:5a:ce:22
+	 Type : IP Datagram(0800)
+IPv4
+	   Version : 4
+	   IP Header Length : 5 bytes 0x5
+	   Type of Service : 0x10
+	   Total Length : 52 bytes
+	   Identification : 0x0fbf
+	   Flags :
+	     Reserved bit : 0
+	     DF : 1
+	     MF : 0
+	   Fragment Offset : 0b0000000000000
+	   Time To Live : 63
+	   Protocol : TCP(6)
+	   Header Checksum unverified : f453
+	   Source Adress : 192.168.21.171
+	   Destination Adress : 34.218.62.116
+	   No Option
+TCP
+	   Source Port : 65222
+	   Destination Port : 80
+	   Sequence Number : 0x1004650077
+	   Acknowledgment Number : 2686070565
+	   Transport Header Length : 0x8
+	   Reserved : 0x000000
+	   Flags TCP :
+	     Urgent Data : 0
+	     Acknowledgment : 1
+	     Push : 0
+	     Reset : 0
+	     Synchronisation : 0
+	     Fin : 0
+	   Window : 0x01f5
+	   Checksum : 0931
+	   Urgent Pointer : 0000
+Pas de HTTP
+Trame numéro : 9
+Ethernet 
+	 Adresse de destination : f0:9f:c2:18:be:de
+	 Adresse de source : f0:9e:4a:5a:ce:22
+	 Type : IP Datagram(0800)
+IPv4
+	   Version : 4
+	   IP Header Length : 5 bytes 0x5
+	   Type of Service : 0x10
+	   Total Length : 52 bytes
+	   Identification : 0x0fc0
+	   Flags :
+	     Reserved bit : 0
+	     DF : 1
+	     MF : 0
+	   Fragment Offset : 0b0000000000000
+	   Time To Live : 63
+	   Protocol : TCP(6)
+	   Header Checksum unverified : f452
+	   Source Adress : 192.168.21.171
+	   Destination Adress : 34.218.62.116
+	   No Option
+TCP
+	   Source Port : 65222
+	   Destination Port : 80
+	   Sequence Number : 0x1004650077
+	   Acknowledgment Number : 2686070566
+	   Transport Header Length : 0x8
+	   Reserved : 0x000000
+	   Flags TCP :
+	     Urgent Data : 0
+	     Acknowledgment : 1
+	     Push : 0
+	     Reset : 0
+	     Synchronisation : 0
+	     Fin : 1
+	   Window : 0x01f5
+	   Checksum : 092f
+	   Urgent Pointer : 0000
+Pas de HTTP
+Trame numéro : 10
+Ethernet 
+	 Adresse de destination : f0:9e:4a:5a:ce:22
+	 Adresse de source : f0:9f:c2:18:be:de
+	 Type : IP Datagram(0800)
+IPv4
+	   Version : 4
+	   IP Header Length : 5 bytes 0x5
+	   Type of Service : 0x00
+	   Total Length : 52 bytes
+	   Identification : 0x3078
+	   Flags :
+	     Reserved bit : 0
+	     DF : 1
+	     MF : 0
+	   Fragment Offset : 0b0000000000000
+	   Time To Live : 37
+	   Protocol : TCP(6)
+	   Header Checksum unverified : edaa
+	   Source Adress : 34.218.62.116
+	   Destination Adress : 192.168.21.171
+	   No Option
+TCP
+	   Source Port : 80
+	   Destination Port : 65222
+	   Sequence Number : 0x2686070566
+	   Acknowledgment Number : 1004650078
+	   Transport Header Length : 0x8
+	   Reserved : 0x000000
+	   Flags TCP :
+	     Urgent Data : 0
+	     Acknowledgment : 1
+	     Push : 0
+	     Reset : 0
+	     Synchronisation : 0
+	     Fin : 0
+	   Window : 0x00d2
+	   Checksum : 0a1f
+	   Urgent Pointer : 0000
+Pas de HTTP
 

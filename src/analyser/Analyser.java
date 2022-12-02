@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Analyser {
 
-	public static void execute() throws IOException {
-		String file = "data/test5.txt";
+	public static List<String> execute() throws IOException {
+		String file = "data/test6.txt";
 		try {
 			int cpt = -1;
 			BufferedReader br = new BufferedReader(new FileReader(file));
@@ -57,49 +57,59 @@ public class Analyser {
 				trameFinale.add(tmp2bis);
 			}
 
+			String res = "";
+			List<String> list = new ArrayList<>();
 			
 			//On traite toutes les trames valides
 			StringBuilder textBuilder = new StringBuilder();
 			for (String trame : trameFinale) {
-				
+				res="";
 				Ethernet e = new Ethernet(trame);
 //				System.out.print(e);
+				res+=""+e.toString();
 				textBuilder.append(e.toString());
 				IPv4 ip = e.getIpv4();
 				if (ip == null) {
 //					System.out.println("Pas de IPv4");
+					res +="Pas de IPv4\n";
 					textBuilder.append("Pas de IPv4\n");
+					list.add(res);
 					continue;
 				}
 //				System.out.print(ip);
 				textBuilder.append(ip.toString());
+				res+=""+ip.toString();
 				TCP tcp = ip.getTCP();
 				if (tcp == null) {
 //					System.out.println("Pas de TCP");
 					textBuilder.append("Pas de TCP\n");
+					list.add(res);
 					continue;
 				}
 //				System.out.println(tcp);
 				textBuilder.append(tcp.toString());
+				res+=""+tcp.toString();
 				HTTP http = tcp.getHTTP();
 				if (http == null) {
 //				System.out.println("Pas de HTTP");
 					textBuilder.append("Pas de HTTP\n");
+					list.add(res);
 					continue;
 				}
 //				System.out.println(http);
+				res+=""+http.toString();
 				textBuilder.append(http.toString());
+				list.add(res);
+				System.out.println("TAILE DE LA LISTE :"+list.size());
 			}
 			String text = textBuilder.toString();
 			Tools.ecrire(text);
-			
-			/**
-			 * Implémentation de l'intgerface graphique 
-			 */
+			return list;
 
 		} catch (FileNotFoundException e) {
 			System.out.println("Erreur lors de l'ouverture du fichier");
 			e.getMessage();
 		}
+		return null;
 	}
 }
