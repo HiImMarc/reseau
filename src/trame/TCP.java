@@ -23,25 +23,32 @@ public class TCP {
 	private String data="";
 	private HTTP http;
 	private int tailleTotale;
+	private String optionList="";
+
 	
 	public TCP(String trame) {
 		tailleTotale = trame.length();
 		sourcePort+="" + trame.charAt(0)+trame.charAt(1);
 		sourcePort+="" + trame.charAt(2)+trame.charAt(3);
+		sourcePort = ""+Integer.parseInt(sourcePort, 16);
 		
 		destinationPort+="" + trame.charAt(4)+trame.charAt(5);
 		destinationPort+="" + trame.charAt(6)+trame.charAt(7);
+		destinationPort = ""+Integer.parseInt(destinationPort, 16);
 
 		sequenceNumber+="" + trame.charAt(8)+trame.charAt(9);
 		sequenceNumber+="" + trame.charAt(10)+trame.charAt(11);
 		sequenceNumber+="" + trame.charAt(12)+trame.charAt(13);
 		sequenceNumber+="" + trame.charAt(14)+trame.charAt(15);
-		
+		sequenceNumber = "" + Long.parseLong(sequenceNumber, 16);
+
 		acknowNumber+="" + trame.charAt(16)+trame.charAt(17);
 		acknowNumber+="" + trame.charAt(18)+trame.charAt(19);
 		acknowNumber+="" + trame.charAt(20)+trame.charAt(21);
 		acknowNumber+="" + trame.charAt(22)+trame.charAt(23);
+		acknowNumber = "" + Long.parseLong(acknowNumber, 16);
 		
+
 		thl+="" + trame.charAt(24);
 		
 		reservedToFin+=""+trame.charAt(25)+trame.charAt(26);
@@ -70,20 +77,102 @@ public class TCP {
 		urgentPointer+=""+trame.charAt(36)+trame.charAt(37);
 		urgentPointer+=""+trame.charAt(38)+trame.charAt(39);
 		
-		int debutData = Integer.parseInt(thl, 16);
-		debutData = debutData*8;
-		for (int i = debutData; i < trame.length(); i++){
-			data +="" + trame.charAt(i);
+		
+		int debutData = 40;
+		int nbOptions = 0;
+		if (hasOptions()) {
+			nbOptions = getNbOptions();
+			debutData = 40 + nbOptions*8;
 		}
-		doHTTP();
+
+		for (int j = debutData; j < trame.length(); j++){
+			data +="" + trame.charAt(j);
+		}
+		this.doHTTP();
 	}
 	
+	public String getSourcePort() {
+		return sourcePort;
+	}
+
+	public String getDestinationPort() {
+		return destinationPort;
+	}
+
+	public String getSequenceNumber() {
+		return sequenceNumber;
+	}
+
+	public String getAcknowNumber() {
+		return acknowNumber;
+	}
+
+	public String getThl() {
+		return thl;
+	}
+
+	public String getReservedToFin() {
+		return reservedToFin;
+	}
+
+	public String getReserved() {
+		return reserved;
+	}
+
+	public String getUrg() {
+		return urg;
+	}
+
+	public String getAck() {
+		return ack;
+	}
+
+	public String getPsh() {
+		return psh;
+	}
+
+	public String getRst() {
+		return rst;
+	}
+
+	public String getSyn() {
+		return syn;
+	}
+
+	public String getFin() {
+		return fin;
+	}
+
+	public String getWindow() {
+		return window;
+	}
+
+	public String getCheckSum() {
+		return checkSum;
+	}
+
+	public String getUrgentPointer() {
+		return urgentPointer;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public HTTP getHttp() {
+		return http;
+	}
+
+	public int getTailleTotale() {
+		return tailleTotale;
+	}
+
 	public String toString() {
 		String res ="";
 		res +="TCP\n";
 		res += "	   Source Port : "+sourcePort+"\n";
-		res += "	   Destination Port : "+Integer.parseInt(destinationPort,16)+"\n";
-		res += "	   Sequence Number : "+"0x"+Integer.parseInt(sequenceNumber,16)+"\n";
+		res += "	   Destination Port : "+destinationPort+"\n";
+		res += "	   Sequence Number : "+"0x"+sequenceNumber+"\n";
 		res += "	   Acknowledgment Number : "+acknowNumber+"\n";
 		res += "	   Transport Header Length : "+"0x"+thl+"\n";
 		res += "	   Reserved : "+"0x"+reserved+"\n";
@@ -109,15 +198,25 @@ public class TCP {
 	}
 	
 	public boolean hasHTTP() {
-		return Integer.parseInt(destinationPort,16) == 80 || Integer.parseInt(sourcePort,16) == 80;
+		return ( destinationPort.equals("80")||sourcePort.equals("80")) && data.length() > 10;
 	}
 	
-	public int optionLength() {
-		return 5-Integer.parseInt(thl,16);
-	}
 	
 	public int getDataLength() {
 		int tailleEntete = Integer.parseInt(thl, 16);
 		return tailleTotale - tailleEntete;
+	}
+	public boolean hasOptions() {
+
+		return Integer.parseInt(thl, 16) - 5 > 0;
+	}
+	
+	public int getNbOptions() {
+		return Integer.parseInt(thl,16) - 5;
+	}
+	
+	public int optionLength() {
+		return 5 -Integer.parseInt(thl,16);
+
 	}
 }

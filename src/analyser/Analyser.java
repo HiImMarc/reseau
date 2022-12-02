@@ -1,15 +1,20 @@
 package analyser;
 import trame.*;
 
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class Analyser {
 
-	public static void main(String args[]) throws IOException {
+	public static void execute() throws IOException {
 		String file = "data/test5.txt";
 		try {
 			int cpt = -1;
@@ -61,38 +66,43 @@ public class Analyser {
 			for (String trame : trameFinale) {
 				
 				Ethernet e = new Ethernet(trame);
-				System.out.print(e);
+//				System.out.print(e);
 				textBuilder.append(e.toString());
 				IPv4 ip = e.getIpv4();
 				if (ip == null) {
-					System.out.println("Pas de IPv4");
-					textBuilder.append("Pas de IPv4");
+//					System.out.println("Pas de IPv4");
+					textBuilder.append("Pas de IPv4\n");
 					continue;
 				}
-				System.out.print(ip);
+//				System.out.print(ip);
 				textBuilder.append(ip.toString());
 				TCP tcp = ip.getTCP();
 				if (tcp == null) {
-					System.out.println("Pas de TCP");
-					textBuilder.append("Pas de TCP");
+//					System.out.println("Pas de TCP");
+					textBuilder.append("Pas de TCP\n");
 					continue;
 				}
-				System.out.println(tcp);
+//				System.out.println(tcp);
 				textBuilder.append(tcp.toString());
 				HTTP http = tcp.getHTTP();
 				if (http == null) {
-					System.out.println("Pas de HTTP");
-					textBuilder.append("Pas de HTTP");
+//				System.out.println("Pas de HTTP");
+					textBuilder.append("Pas de HTTP\n");
 					continue;
 				}
-				System.out.println(http);
+//				System.out.println(http);
 				textBuilder.append(http.toString());
 			}
 			String text = textBuilder.toString();
 			Tools.ecrire(text);
+			
+			/**
+			 * Implémentation de l'intgerface graphique 
+			 */
+
 		} catch (FileNotFoundException e) {
 			System.out.println("Erreur lors de l'ouverture du fichier");
 			e.getMessage();
-		}		
+		}
 	}
 }

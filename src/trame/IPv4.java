@@ -67,7 +67,6 @@ public class IPv4 {
 		if (hasOptions()) {
 			nbOptions = getNbOptions();
 			debutData = 40 + nbOptions*8;
-			
 			int i = 40;
 			String typeOption =""+ trame.charAt(i)+ trame.charAt(i+1);
 			String typeLength =""+ trame.charAt(i+2)+ trame.charAt(i+3);
@@ -105,6 +104,70 @@ public class IPv4 {
 		this.doTCP();
 	}
 	
+	public String getVersion() {
+		return version;
+	}
+
+	public String getIhl() {
+		return ihl;
+	}
+
+	public String getTos() {
+		return tos;
+	}
+
+	public String getTotalLength() {
+		return totalLength;
+	}
+
+	public String getIdentification() {
+		return identification;
+	}
+
+	public String getFlagsAndFragmentOffset() {
+		return flagsAndFragmentOffset;
+	}
+
+	public String[] getFlags() {
+		return flags;
+	}
+
+	public String getFragmentOffset() {
+		return fragmentOffset;
+	}
+
+	public String getTtl() {
+		return ttl;
+	}
+
+	public String getProtocol() {
+		return protocol;
+	}
+
+	public String getHeaderChecksum() {
+		return headerChecksum;
+	}
+
+	public String getSourceAdress() {
+		return Tools.hexToAddressIP(sourceAdress);
+	}
+
+	public String getDestinationAdress() {
+		return Tools.hexToAddressIP(destinationAdress);
+	}
+
+	public String getOptionList() {
+		return optionList;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public TCP getTcp() {
+		return tcp;
+	}
+
 	public String toString() {
 		String res ="";
 		res +="IPv4\n";
