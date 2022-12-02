@@ -1,6 +1,7 @@
-module analyser {
+module pobj.pinboard {
 	requires javafx.base;
 	requires javafx.graphics;
 	requires transitive javafx.controls;
-	requires junit;
+	exports analyser;
+	exports trame;
 }
