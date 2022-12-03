@@ -28,10 +28,13 @@ public class Ethernet {
 		source+=""+trame.charAt(33)+trame.charAt(34);
 		type =""+ trame.charAt(36)+trame.charAt(37);
 		type+=""+trame.charAt(39)+trame.charAt(40);
+
 		for (int i = 42; i < trame.length()-1; i+=3){
+
 			data +=""+ trame.charAt(i)+ trame.charAt(i+1);
 		}
 		doIPv4();
+
 	}
 	
 	public String toString() {
@@ -61,7 +64,10 @@ public class Ethernet {
 	}
 	
 	public void doIPv4() {
-		if (hasIP()) ipv4=new IPv4(data);
+
+		if (hasIP()) {
+			ipv4=new IPv4(data);
+		}
 	}
 
 	public String getDestination() {

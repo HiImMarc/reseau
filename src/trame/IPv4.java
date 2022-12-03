@@ -4,6 +4,8 @@ import analyser.*;
 
 import java.math.BigInteger;
 
+import Exception.IllegalHexException;
+
 public class IPv4 {
 	private String version="";
 	private String ihl="";
@@ -23,7 +25,7 @@ public class IPv4 {
 	private String data="";
 	private TCP tcp;
 	
-	public IPv4(String trame) {
+	public IPv4(String trame){
 		version+=""+trame.charAt(0);
 		
 		ihl+=""+trame.charAt(1);
