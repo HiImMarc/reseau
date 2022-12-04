@@ -1,6 +1,10 @@
 package trame;
 
-import analyser.*;
+/**
+ * Classe représentant une entete Ethernet
+ * @author Marc & Ertugul
+ *
+ */
 public class Ethernet {
 	private static int cpt = 0;
 	private final int id;
@@ -11,6 +15,10 @@ public class Ethernet {
 	private IPv4 ipv4;
 
 
+	/**
+	 * Constructeur d'une entête Ethernet d'une trame
+	 * @param trame
+	 */
 	public Ethernet(String trame) {
 		cpt++;
 		id = cpt;
@@ -30,11 +38,10 @@ public class Ethernet {
 		type+=""+trame.charAt(39)+trame.charAt(40);
 
 		for (int i = 42; i < trame.length()-1; i+=3){
-
 			data +=""+ trame.charAt(i)+ trame.charAt(i+1);
 		}
+		
 		doIPv4();
-
 	}
 	
 	public String toString() {
@@ -59,12 +66,17 @@ public class Ethernet {
 		return res;
 	}
 	
+	/**
+	 * Retourne vrai si la trame contient une entete IPv4
+	 */
 	public boolean hasIP() {
 		return type.equals("0800");
 	}
 	
+	/**
+	 * Si on a un IPv4 on initialise ipv4
+	 */
 	public void doIPv4() {
-
 		if (hasIP()) {
 			ipv4=new IPv4(data);
 		}

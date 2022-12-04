@@ -12,48 +12,52 @@ import java.util.List;
 public class Analyser {
 
 	public static List<String> execute(String filePath) throws IOException {
-		
+		//On récupère la liste des trames
 		List<String> trameFinale = Tools.getCleanFrame(filePath);
-		String res = "";
+		
+		String res;
 		List<String> list = new ArrayList<>();
 
-		//On traite toutes les trames valides
 		StringBuilder textBuilder = new StringBuilder();
+		//Pour chaque trame
 		for (String trame : trameFinale) {
-			res="";
+			//On crée une entete Ethernet
 			Ethernet e = new Ethernet(trame);
-//				System.out.print(e);
-			res+=""+e.toString();
+			//On ajoute le decodage de l'ethernet dans res
+			res=""+e.toString();
 			textBuilder.append(e.toString());
+			//On crée l'entete Ipv4
 			IPv4 ip = e.getIpv4();
+			//Si il n'y a pas d'IPv4
 			if (ip == null) {
-				System.out.println("Pas de IPv4");
 				res +="Pas de IPv4\n";
 				textBuilder.append("Pas de IPv4\n");
 				list.add(res);
 				continue;
 			}
-//				System.out.print(ip);
+			//Sinon on ajoute le décodage dans res
 			textBuilder.append(ip.toString());
 			res+=""+ip.toString();
+			//On crée l'entete TCP
 			TCP tcp = ip.getTCP();
+			//Si il n'y a pas de TCP
 			if (tcp == null) {
-//					System.out.println("Pas de TCP");
 				textBuilder.append("Pas de TCP\n");
 				list.add(res);
 				continue;
 			}
-//				System.out.println(tcp);
+			//Sinon on rajoute le décodage dans res
 			textBuilder.append(tcp.toString());
 			res+=""+tcp.toString();
+			//On crée le HTTP
 			HTTP http = tcp.getHTTP();
+			//Si il n'y a pas de HTTP
 			if (http == null) {
-//				System.out.println("Pas de HTTP");
 				textBuilder.append("Pas de HTTP\n");
 				list.add(res);
 				continue;
 			}
-//				System.out.println(http);
+			//Sinon on rajoute le décodage dans res
 			res+=""+http.toString(false);
 			textBuilder.append(http.toString());
 			list.add(res);
