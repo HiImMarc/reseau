@@ -1,10 +1,10 @@
 package analyser;
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import java.util.List;
 
-import Exception.IllegalHexException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.*;
@@ -29,9 +29,12 @@ public class FlowGraph extends javafx.application.Application {
 		//Liste du traffic entre les deux machines
 		List<String> listeTrames= Visualiser.execute(filePath);
 		
+		String text = listeTrames+"\n"+listeDecodages;
+		Tools.ecrire(text);
+
 		//Création de la fenetre contenant la liste des trames
 		VBox box = new VBox();
-		
+
 		//Création de la scrollbar qui contient la box
 		ScrollPane scrollPane = new ScrollPane();
 		scrollPane.setContent(box);
@@ -39,7 +42,6 @@ public class FlowGraph extends javafx.application.Application {
 		//Label pour afficher les IP des deux machines
 		Label lIP = new Label(listeTrames.get(0));
 		box.getChildren().add(lIP);
-		
 		
 		for (int i = 0; i < listeTrames.size()-1; i++) {
 			Label l = new Label(listeTrames.get(i+1));
@@ -65,7 +67,7 @@ public class FlowGraph extends javafx.application.Application {
 			});
 		}
 		
-		//titre de l'interfaces
+		//titre de l'interface
 		stage.setTitle("FlowGraph");
 		
 		Scene scene = new Scene(scrollPane,585,500);

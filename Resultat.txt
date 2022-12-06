@@ -1,4 +1,47 @@
-Trame numéro : 1
+[192.168.21.171					             					    34.218.62.116
+, frame : 1 |------------------------------- No TCP, No Connexion ---------------------------------------|
+, frame : 2	   65222 -> 80 [ACK] [PSH] Seq=1004650068 Ack=2686070173 Win=01f6
+65222 | ------------------------------------------------------------------------------------------------------> | 80
+
+
+, frame : 3	   65222 -> 80 [ACK] Seq=2686070173 Ack=1004650073 Win=00d2
+65222| <------------------------------------------------------------------------------------------------------ | 80
+
+
+, frame : 4	   65222 -> 80 [ACK] [PSH] Seq=1004650073 Ack=2686070173 Win=01f6
+65222 | ------------------------------------------------------------------------------------------------------> | 80
+
+
+, frame : 5	   65222 -> 80 [ACK] Seq=2686070173 Ack=1004650075 Win=00d2
+65222| <------------------------------------------------------------------------------------------------------ | 80
+
+
+, frame : 6	   65222 -> 80 [ACK] [PSH] Seq=2686070173 Ack=1004650075 Win=00d2
+65222| <------------------------------------------------------------------------------------------------------ | 80
+						 HTTP/1.1 400 Bad Request
+
+, frame : 7	   65222 -> 80 [ACK] [FIN] Seq=2686070565 Ack=1004650075 Win=00d2
+65222| <------------------------------------------------------------------------------------------------------ | 80
+
+
+, frame : 8	   65222 -> 80 [ACK] [PSH] Seq=1004650075 Ack=2686070173 Win=01f6
+65222 | ------------------------------------------------------------------------------------------------------> | 80
+
+
+, frame : 9	   65222 -> 80 [ACK] Seq=1004650077 Ack=2686070565 Win=01f5
+65222 | ------------------------------------------------------------------------------------------------------> | 80
+
+
+, frame : 10	   65222 -> 80 [ACK] [FIN] Seq=1004650077 Ack=2686070566 Win=01f5
+65222 | ------------------------------------------------------------------------------------------------------> | 80
+
+
+, frame : 11	   65222 -> 80 [ACK] Seq=2686070566 Ack=1004650078 Win=00d2
+65222| <------------------------------------------------------------------------------------------------------ | 80
+
+
+]
+[Trame numéro : 1
 Ethernet 
 	 Adresse de destination : 08:00:20:0a:ac:96
 	 Adresse de source : 08:00:20:0a:70:66
@@ -21,8 +64,7 @@ IPv4
 	   Destination Adress : 34.218.62.116
 	   Option List :  (7) Record Route
 	   
-Pas de TCP
-Trame numéro : 2
+, Trame numéro : 2
 Ethernet 
 	 Adresse de destination : f0:9f:c2:18:be:de
 	 Adresse de source : f0:9e:4a:5a:ce:22
@@ -61,8 +103,7 @@ TCP
 	   Window : 0x01f6
 	   Checksum : 2a9a
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 3
+, Trame numéro : 3
 Ethernet 
 	 Adresse de destination : f0:9e:4a:5a:ce:22
 	 Adresse de source : f0:9f:c2:18:be:de
@@ -101,8 +142,7 @@ TCP
 	   Window : 0x00d2
 	   Checksum : 0dee
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 4
+, Trame numéro : 4
 Ethernet 
 	 Adresse de destination : f0:9f:c2:18:be:de
 	 Adresse de source : f0:9e:4a:5a:ce:22
@@ -141,8 +181,7 @@ TCP
 	   Window : 0x01f6
 	   Checksum : feb3
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 5
+, Trame numéro : 5
 Ethernet 
 	 Adresse de destination : f0:9e:4a:5a:ce:22
 	 Adresse de source : f0:9f:c2:18:be:de
@@ -181,8 +220,7 @@ TCP
 	   Window : 0x00d2
 	   Checksum : 0caa
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 6
+, Trame numéro : 6
 Ethernet 
 	 Adresse de destination : f0:9e:4a:5a:ce:22
 	 Adresse de source : f0:9f:c2:18:be:de
@@ -221,7 +259,21 @@ TCP
 	   Window : 0x00d2
 	   Checksum : 1e86
 	   Urgent Pointer : 0000
-trame.HTTP@81ad412Trame numéro : 7
+HTTP/1.1 400 Bad Request
+Date: Sun, 27 Nov 2022 15:05:25 GMT
+Server: Apache
+Content-Length: 226
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>400 Bad Request</title>
+</head><body>
+<h1>Bad Request</h1>
+<p>Your browser sent a request that this server could not understand.<br />
+</p>
+</bod, Trame numéro : 7
 Ethernet 
 	 Adresse de destination : f0:9e:4a:5a:ce:22
 	 Adresse de source : f0:9f:c2:18:be:de
@@ -260,8 +312,7 @@ TCP
 	   Window : 0x00d2
 	   Checksum : 0b21
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 8
+, Trame numéro : 8
 Ethernet 
 	 Adresse de destination : f0:9f:c2:18:be:de
 	 Adresse de source : f0:9e:4a:5a:ce:22
@@ -300,8 +351,7 @@ TCP
 	   Window : 0x01f6
 	   Checksum : fda5
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 9
+, Trame numéro : 9
 Ethernet 
 	 Adresse de destination : f0:9f:c2:18:be:de
 	 Adresse de source : f0:9e:4a:5a:ce:22
@@ -340,8 +390,7 @@ TCP
 	   Window : 0x01f5
 	   Checksum : 0931
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 10
+, Trame numéro : 10
 Ethernet 
 	 Adresse de destination : f0:9f:c2:18:be:de
 	 Adresse de source : f0:9e:4a:5a:ce:22
@@ -380,8 +429,7 @@ TCP
 	   Window : 0x01f5
 	   Checksum : 092f
 	   Urgent Pointer : 0000
-Pas de HTTP
-Trame numéro : 11
+, Trame numéro : 11
 Ethernet 
 	 Adresse de destination : f0:9e:4a:5a:ce:22
 	 Adresse de source : f0:9f:c2:18:be:de
@@ -420,5 +468,4 @@ TCP
 	   Window : 0x00d2
 	   Checksum : 0a1f
 	   Urgent Pointer : 0000
-Pas de HTTP
-
+]

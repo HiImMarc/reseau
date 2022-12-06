@@ -17,14 +17,16 @@ public class TCP {
 	private String rst="";
 	private String syn="";
 	private String fin="";
+	
 	private String window="";
 	private String checkSum="";
 	private String urgentPointer="";
-	private String data="";
-	private HTTP http;
+
 	private int tailleTotale;
 	private String optionList="";
 
+	private String data="";
+	private HTTP http;
 	
 	public TCP(String trame) {
 		tailleTotale = trame.length();

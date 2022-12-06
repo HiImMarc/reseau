@@ -1,6 +1,5 @@
 package analyser;
 
-import Exception.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,6 +8,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import exception.*;
 
 public abstract class Tools {
 	
@@ -130,6 +131,7 @@ public abstract class Tools {
 			//On sépare les différentes trames
 			//stringTrames ne sert qu'à passer de StringBuilder à String
 			String stringTrames = trames.toString();
+			
 			//On sépare les différentes trames pour les différencier
 			String[] splitedTrames = stringTrames.split("0000   ");
 			
@@ -154,19 +156,12 @@ public abstract class Tools {
 						if (!decodableOffset(tmp[j+1])) {
 							throw new IllegalOffsetException("Mauvais offset");
 						}
-						if (!isAlphaNumericSpace(tmp[j])) {
-							throw new IllegalHexException("digit non hexadécimal");
-						}
 						tmp2.append(tmp[j]+"\n");
 					}
 				} catch(IllegalOffsetException o) {
 					System.out.println(o.getMessage());
 					System.exit(-1);
-				} catch(IllegalHexException he) {
-					System.out.println(he.getMessage());
-					System.exit(-1);
-				}
-				
+				}	
 				
 				//conversion StringBuilder to String
 				String tmp2bis = ""+tmp2.toString();

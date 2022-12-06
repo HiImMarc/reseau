@@ -12,9 +12,11 @@ public class IPv4 {
 	private String tos="";
 	private String totalLength="";
 	private String identification="";
+	
 	private String flagsAndFragmentOffset=""; //stocke les hexa des flags et du fragment offset
 	private String[] flags= {"0","0","0"};
 	private String fragmentOffset="";
+	
 	private String ttl="";
 	private String protocol="";
 	private String headerChecksum="";
