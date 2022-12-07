@@ -1,7 +1,9 @@
-module analyser {
+module reseau {
+	exports exception;
+	exports trame;
 	exports analyser;
-	requires javafx.base;
-	requires javafx.graphics;
-	requires transitive javafx.controls;
 
+	requires javafx.base;
+	requires javafx.controls;
+	requires javafx.graphics;
 }
