@@ -85,7 +85,6 @@ public class TCP {
 			nbOptions = getNbOptions();
 			debutData = 40 + nbOptions*8;
 		}
-
 		for (int j = debutData; j < trame.length(); j++){
 			data +="" + trame.charAt(j);
 		}

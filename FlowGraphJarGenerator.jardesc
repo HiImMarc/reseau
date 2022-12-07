@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="reseau/FlowGraph.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/reseau/FlowGraphJarGenerator.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=reseau/src"/>
+        <folder path="/reseau/data"/>
+        <file path="/reseau/.classpath"/>
+        <file path="/reseau/.gitignore"/>
+        <file path="/reseau/Resultat.txt"/>
+        <file path="/reseau/.project"/>
+        <file path="/reseau/README.md"/>
+    </selectedElements>
+</jardesc>

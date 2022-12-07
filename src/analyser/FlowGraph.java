@@ -1,10 +1,10 @@
 package analyser;
 import java.io.IOException;
 
+
 import java.util.ArrayList;
 
 import java.util.List;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.*;
@@ -21,10 +21,10 @@ import javafx.stage.Stage;
 public class FlowGraph extends javafx.application.Application {
 	@Override
 	public void start(javafx.stage.Stage stage) throws IOException{
-		String filePath = "data/test6.txt";
+		String filePath = Tools.getFile();
 		
 		//Liste des décodages complets des trames
-		List<String> listeDecodages =Analyser.execute(filePath);
+		List<String> listeDecodages = Analyser.execute(filePath);
 		
 		//Liste du traffic entre les deux machines
 		List<String> listeTrames= Visualiser.execute(filePath);
@@ -35,9 +35,8 @@ public class FlowGraph extends javafx.application.Application {
 		//Création de la fenetre contenant la liste des trames
 		VBox box = new VBox();
 
-		//Création de la scrollbar qui contient la box
-		ScrollPane scrollPane = new ScrollPane();
-		scrollPane.setContent(box);
+		ListView<Label> listView = new ListView<>();
+		listView.setMinSize(600, 500);
 
 		//Label pour afficher les IP des deux machines
 		Label lIP = new Label(listeTrames.get(0));
@@ -46,7 +45,8 @@ public class FlowGraph extends javafx.application.Application {
 		for (int i = 0; i < listeTrames.size()-1; i++) {
 			Label l = new Label(listeTrames.get(i+1));
 			l.setMinSize(575, 65);
-			box.getChildren().add(l);
+			listView.getItems().add(l);
+//			box.getChildren().add(l);
 			
 			//Affichage pop up du décodage complet de la trame, sur clic
 			Label l2 = new Label(listeDecodages.get(i));
@@ -66,17 +66,19 @@ public class FlowGraph extends javafx.application.Application {
 				l.setTextFill(Color.BLACK);
 			});
 		}
+		box.getChildren().add(listView);
 		
 		//titre de l'interface
 		stage.setTitle("FlowGraph");
 		
-		Scene scene = new Scene(scrollPane,585,500);
+		Scene scene = new Scene(box,600,500);
 		//On ajoute notre box au stage
 		stage.setScene(scene);
 		//On affiche tout
 		stage.show();
 	}
-	public static void main(String[] args) { 
+	public static void main(String[] args) {
+		Tools.setFile(args[0]);
 		launch(args); 
 		}
 }

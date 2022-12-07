@@ -12,6 +12,15 @@ import java.util.List;
 import exception.*;
 
 public abstract class Tools {
+	public static String filePath;
+	
+	public static void setFile(String file) {
+		filePath = file;
+	}
+	
+	public static String getFile() {
+		return filePath;
+	}
 	
 	//Convertie un nombre hexa en binaire et renvoie le binaire en string
     public static String hexToBin(String hex){
@@ -153,6 +162,8 @@ public abstract class Tools {
 						if (j+1 >= tmp.length) {
 							break;
 						}
+						//tmp[j+1] correspond aux offsets 
+						//On regarde s'il est correct, sinon on lance une exception
 						if (!decodableOffset(tmp[j+1])) {
 							throw new IllegalOffsetException("Mauvais offset");
 						}
